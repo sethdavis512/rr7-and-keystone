@@ -27,6 +27,12 @@ export default withAuth(
             url: process.env.DATABASE_URL!
         },
         lists,
-        session
+        session,
+        server: {
+            cors: {
+                origin: process.env.FRONTEND_URL,
+                credentials: true
+            }
+        }
     })
 );
