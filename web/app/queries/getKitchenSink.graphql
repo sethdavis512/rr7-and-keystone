@@ -1,0 +1,19 @@
+query GetKitchenSink {
+    users {
+        id
+        name
+        posts {
+            id
+            title
+        }
+    }
+    posts {
+        id
+        title
+    }
+    customers {
+        id
+        name
+        email
+    }
+}
