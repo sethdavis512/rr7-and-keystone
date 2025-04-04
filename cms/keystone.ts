@@ -15,9 +15,7 @@ import { lists } from './schema';
 import { withAuth, session } from './auth';
 import dotenv from 'dotenv';
 
-dotenv.config({
-    path: process.env.NODE_ENV === 'development' ? '../.env' : undefined
-});
+dotenv.config({ path: '../.env' });
 
 export default withAuth(
     config({
