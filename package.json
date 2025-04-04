@@ -1,0 +1,24 @@
+{
+    "name": "rr7-and-keystone",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "build": "concurrently \"npm run build:cms\" \"npm run build:web\"",
+        "build:cms": "npm run build --prefix cms",
+        "build:web": "npm run build --prefix web",
+        "dev": "concurrently \"npm run dev:cms\" \"npm run dev:web\"",
+        "dev:cms": "npm run dev --prefix cms",
+        "dev:web": "npm run dev --prefix web",
+        "start": "concurrently \"npm run start:cms\" \"npm run start:web\"",
+        "start:cms": "npm run start --prefix cms",
+        "start:web": "npm run start --prefix web"
+    },
+    "keywords": [],
+    "author": "Seth Davis",
+    "license": "ISC",
+    "type": "commonjs",
+    "dependencies": {
+        "concurrently": "^9.1.2"
+    }
+}
