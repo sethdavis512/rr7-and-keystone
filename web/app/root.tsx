@@ -6,9 +6,6 @@ import {
     Scripts,
     ScrollRestoration
 } from 'react-router';
-import dotenv from 'dotenv';
-
-dotenv.config({ path: process.env.ENV_PATH || '../.env' });
 
 import type { Route } from './+types/root';
 import './app.css';
