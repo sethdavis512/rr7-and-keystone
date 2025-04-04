@@ -20,6 +20,14 @@ model User {
   createdAt DateTime? @default(now())
 }
 
+model Customer {
+  id        String    @id @default(cuid())
+  name      String    @default("")
+  email     String    @unique @default("")
+  password  String
+  createdAt DateTime? @default(now())
+}
+
 model Post {
   id       String  @id @default(cuid())
   title    String  @default("")

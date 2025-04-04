@@ -1,0 +1,8 @@
+schema: http://localhost:3000/api/graphql # Replace with your Keystone GraphQL endpoint
+documents: ./web/app/queries/**/*.graphql
+generates:
+  ./web/app/generated/graphql.ts:
+    plugins:
+      - typescript
+      - typescript-operations
+      - typescript-urql

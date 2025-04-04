@@ -4,21 +4,28 @@
     "description": "",
     "main": "index.js",
     "scripts": {
-        "build": "concurrently \"npm run build:cms\" \"npm run build:web\"",
         "build:cms": "npm run build --prefix cms",
         "build:web": "npm run build --prefix web",
-        "dev": "concurrently \"npm run dev:cms\" \"npm run dev:web\"",
+        "build": "concurrently \"npm run build:cms\" \"npm run build:web\"",
         "dev:cms": "npm run dev --prefix cms",
         "dev:web": "npm run dev --prefix web",
-        "start": "concurrently \"npm run start:cms\" \"npm run start:web\"",
+        "dev": "concurrently \"npm run dev:cms\" \"npm run dev:web\"",
+        "generate:types": "npx graphql-codegen",
         "start:cms": "npm run start --prefix cms",
-        "start:web": "npm run start --prefix web"
+        "start:web": "npm run start --prefix web",
+        "start": "concurrently \"npm run start:cms\" \"npm run start:web\""
     },
     "keywords": [],
     "author": "Seth Davis",
     "license": "ISC",
     "type": "commonjs",
     "dependencies": {
-        "concurrently": "^9.1.2"
+        "@graphql-codegen/cli": "^5.0.5",
+        "@graphql-codegen/typescript": "^4.1.6",
+        "@graphql-codegen/typescript-operations": "^4.6.0",
+        "@graphql-codegen/typescript-urql": "^4.0.0",
+        "concurrently": "^9.1.2",
+        "graphql": "^16.10.0",
+        "urql": "^4.2.2"
     }
 }
