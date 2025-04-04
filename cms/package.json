@@ -4,6 +4,7 @@
     "private": true,
     "scripts": {
         "dev": "keystone dev",
+        "prestart": "keystone prisma migrate deploy",
         "start": "keystone start",
         "build": "keystone build"
     },
