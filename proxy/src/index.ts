@@ -23,9 +23,6 @@ app.all('/api/*', () => {
     return proxy(process.env.KEYSTONE_INTERNAL_URL!);
 });
 
-serve({
-    fetch: app.fetch,
-    port: 8787
-});
+serve(app);
 
 export default app;
