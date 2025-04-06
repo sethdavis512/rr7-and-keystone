@@ -15,12 +15,12 @@ const view = html`
 
 app.get('/', (c) => c.html(view));
 
-// Use the proxy helper to forward requests matching /api/*
-// The baseUrl is taken from the environment variable KEYSTONE_INTERNAL_URL.
-// For example, KEYSTONE_INTERNAL_URL could be "http://<PROJECT_NAME>.railway.internal"
-app.all('/api/*', () => {
-    console.log('===== PROXY =====', process.env.KEYSTONE_INTERNAL_URL);
-    return proxy(process.env.KEYSTONE_INTERNAL_URL!);
+app.all('/api/:path', (c) => {
+    return proxy(
+        `https://${process.env.KEYSTONE_INTERNAL_URL!}/api/${c.req.param(
+            'path'
+        )}`
+    );
 });
 
 serve(app);
