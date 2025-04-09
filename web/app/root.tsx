@@ -45,7 +45,12 @@ export function Layout({ children }: { children: React.ReactNode }) {
 }
 
 export default function App() {
-    return <Outlet />;
+    return (
+        <>
+            {import.meta.env.VITE_GRAPHQL_ENDPOINT}
+            <Outlet />
+        </>
+    );
 }
 
 export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
