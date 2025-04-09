@@ -10,7 +10,6 @@ const view = html`
     <html>
         <body>
             <h1>Hono Proxy 🤓</h1>
-            <p>${process.env.KEYSTONE_INTERNAL_URL}</p>
         </body>
     </html>
 `;
