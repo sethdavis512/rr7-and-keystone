@@ -19,9 +19,7 @@ app.get('/', (c) => c.html(view));
 app.use('/api/*', cors());
 app.all('/api/:path', (c) => {
     return proxy(
-        `https://${process.env.KEYSTONE_INTERNAL_URL!}/api/${c.req.param(
-            'path'
-        )}`,
+        `${process.env.KEYSTONE_INTERNAL_URL}/api/${c.req.param('path')}`,
         {
             method: 'POST'
         }
