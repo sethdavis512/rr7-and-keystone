@@ -36,7 +36,9 @@ export function Layout({ children }: { children: React.ReactNode }) {
                 <Links />
             </head>
             <body>
-                {import.meta.env.VITE_GRAPHQL_ENDPOINT}
+                {`This is the env var: ${
+                    import.meta.env.VITE_GRAPHQL_ENDPOINT
+                }`}
                 {children}
                 <ScrollRestoration />
                 <Scripts />
