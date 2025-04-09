@@ -25,7 +25,7 @@ export async function loader() {
     } catch (error) {
         console.error('Error in loader:', error);
 
-        return null;
+        return { status: 'ERROR', endpoint: process.env.VITE_GRAPHQL_ENDPOINT };
     }
 }
 
