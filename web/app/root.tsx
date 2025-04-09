@@ -36,6 +36,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
                 <Links />
             </head>
             <body>
+                {import.meta.env.VITE_GRAPHQL_ENDPOINT}
                 {children}
                 <ScrollRestoration />
                 <Scripts />
@@ -45,12 +46,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
 }
 
 export default function App() {
-    return (
-        <>
-            {import.meta.env.VITE_GRAPHQL_ENDPOINT}
-            <Outlet />
-        </>
-    );
+    return <Outlet />;
 }
 
 export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
