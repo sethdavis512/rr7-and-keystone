@@ -20,11 +20,14 @@ app.all('/api/:path', (c) => {
     return proxy(
         `${process.env.KEYSTONE_INTERNAL_URL}/api/${c.req.param('path')}`,
         {
-            method: 'POST'
+            method: 'POST',
+            headers: {
+                ...c.req.header()
+            }
         }
     );
 });
 
-serve(app);
+serve({ fetch: app.fetch, port: 8787 });
 
 export default app;
