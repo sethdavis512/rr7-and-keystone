@@ -13,14 +13,20 @@ export function meta({}: Route.MetaArgs) {
 }
 
 export async function loader() {
-    const { posts, customers, users } =
-        await client.request<GetKitchenSinkQuery>(GetKitchenSinkDocument);
+    try {
+        const { posts, customers, users } =
+            await client.request<GetKitchenSinkQuery>(GetKitchenSinkDocument);
 
-    return {
-        customers,
-        posts,
-        users
-    };
+        return {
+            customers,
+            posts,
+            users
+        };
+    } catch (error) {
+        console.error('Error in loader:', error);
+
+        return null;
+    }
 }
 
 export default function Home({ loaderData }: Route.ComponentProps) {
