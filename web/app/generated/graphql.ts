@@ -819,7 +819,7 @@ export type GetCustomersQuery = { __typename?: 'Query', customers?: Array<{ __ty
 export type GetKitchenSinkQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type GetKitchenSinkQuery = { __typename?: 'Query', users?: Array<{ __typename?: 'User', id: string, name?: string | null, posts?: Array<{ __typename?: 'Post', id: string, title?: string | null }> | null }> | null, posts?: Array<{ __typename?: 'Post', id: string, title?: string | null }> | null, customers?: Array<{ __typename?: 'Customer', id: string, name?: string | null, email?: string | null }> | null };
+export type GetKitchenSinkQuery = { __typename?: 'Query', users?: Array<{ __typename?: 'User', id: string, name?: string | null, posts?: Array<{ __typename?: 'Post', id: string, title?: string | null }> | null }> | null, posts?: Array<{ __typename?: 'Post', id: string, title?: string | null, tags?: Array<{ __typename?: 'Tag', id: string, name?: string | null }> | null }> | null, customers?: Array<{ __typename?: 'Customer', id: string, name?: string | null, email?: string | null }> | null };
 
 export type GetPostsQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -858,6 +858,10 @@ export const GetKitchenSinkDocument = gql`
   posts {
     id
     title
+    tags {
+      id
+      name
+    }
   }
   customers {
     id

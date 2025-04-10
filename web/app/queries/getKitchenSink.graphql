@@ -10,6 +10,10 @@ query GetKitchenSink {
     posts {
         id
         title
+        tags {
+            id
+            name
+        }
     }
     customers {
         id

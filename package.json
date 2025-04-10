@@ -5,18 +5,15 @@
     "main": "index.js",
     "scripts": {
         "build:cms": "npm run build --prefix cms",
-        "build:proxy": "npm run build --prefix proxy",
         "build:web": "npm run build --prefix web",
         "build": "concurrently \"npm run build:cms\" \"npm run build:web\"",
         "dev:cms": "npm run dev --prefix cms",
-        "dev:proxy": "npm run dev --prefix proxy",
         "dev:web": "npm run dev --prefix web",
-        "dev": "concurrently \"npm run dev:cms\" \"npm run dev:proxy\" \"npm run dev:web\"",
+        "dev": "concurrently \"npm run dev:cms\" \"npm run dev:web\"",
         "generate:types": "npx graphql-codegen",
         "start:cms": "npm run start --prefix cms",
-        "start:proxy": "npm run start --prefix proxy",
         "start:web": "npm run start --prefix web",
-        "start": "concurrently \"npm run start:cms\" \"npm run start:proxy\" \"npm run start:web\""
+        "start": "concurrently \"npm run start:cms\" \"npm run start:web\""
     },
     "keywords": [],
     "author": "Seth Davis",
