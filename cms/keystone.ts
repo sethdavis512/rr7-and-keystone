@@ -17,6 +17,12 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
+console.log(
+    '===== LOG =====',
+    process.env.DATABASE_URL,
+    process.env.FRONTEND_URL
+);
+
 export default withAuth(
     config({
         db: {
