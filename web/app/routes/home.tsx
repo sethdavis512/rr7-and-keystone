@@ -7,8 +7,8 @@ import {
 
 export function meta({}: Route.MetaArgs) {
     return [
-        { title: 'New React Router App' },
-        { name: 'description', content: 'Welcome to React Router!' }
+        { title: 'CMS | RR7 & Keystone' },
+        { name: 'description', content: 'React Router 7 & Keyston CMS stack' }
     ];
 }
 
@@ -25,7 +25,7 @@ export async function loader() {
     } catch (error) {
         console.error('Error in loader:', error);
 
-        return { status: 'ERROR', endpoint: process.env.VITE_GRAPHQL_ENDPOINT };
+        return { status: 'ERROR' };
     }
 }
 
