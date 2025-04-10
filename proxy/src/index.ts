@@ -14,19 +14,21 @@ const view = html`
     </html>
 `;
 
-app.get('/', (c) => c.html(view));
 app.use('/api/*', cors());
-app.all('/api/:path', (c) => {
-    return proxy(
-        `${process.env.KEYSTONE_INTERNAL_URL}/api/${c.req.param('path')}`,
-        {
-            method: 'POST'
-            // headers: {
-            //     ...c.req.header()
-            // }
-        }
-    );
-});
+
+app.get('/', (c) => c.html(view));
+
+// app.all('/api/:path', (c) => {
+//     return proxy(
+//         `${process.env.KEYSTONE_INTERNAL_URL}/api/${c.req.param('path')}`,
+//         {
+//             method: 'POST'
+//             // headers: {
+//             //     ...c.req.header()
+//             // }
+//         }
+//     );
+// });
 
 serve({ fetch: app.fetch, port: 8787 });
 
