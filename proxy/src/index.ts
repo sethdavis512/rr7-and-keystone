@@ -20,10 +20,10 @@ app.all('/api/:path', (c) => {
     return proxy(
         `${process.env.KEYSTONE_INTERNAL_URL}/api/${c.req.param('path')}`,
         {
-            method: 'POST',
-            headers: {
-                ...c.req.header()
-            }
+            method: 'POST'
+            // headers: {
+            //     ...c.req.header()
+            // }
         }
     );
 });
