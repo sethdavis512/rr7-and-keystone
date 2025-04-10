@@ -18,17 +18,19 @@ const view = html`
 
 app.get('/', (c) => c.html(view));
 
-// app.all('/api/:path', (c) => {
-//     return proxy(
-//         `${process.env.KEYSTONE_INTERNAL_URL}/api/${c.req.param('path')}`,
-//         {
-//             method: 'POST'
-//             // headers: {
-//             //     ...c.req.header()
-//             // }
-//         }
-//     );
-// });
+app.all('/api/:path', (c) => {
+    console.log('===== LOG =====', c.req.param('path'));
+    return c.json({ success: true });
+    // return proxy(
+    //     `${process.env.KEYSTONE_INTERNAL_URL}/api/${c.req.param('path')}`,
+    //     {
+    //         method: 'POST'
+    //         // headers: {
+    //         //     ...c.req.header()
+    //         // }
+    //     }
+    // );
+});
 
 serve(app);
 
